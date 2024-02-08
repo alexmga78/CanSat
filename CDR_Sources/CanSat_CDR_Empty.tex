@@ -89,15 +89,66 @@ Additional sections can be added by the team if appropriate. However, the presen
 
 \subsection{Mechanical / structural design}
 % Here comes the text regarding the mechanical and structural design.
+\begin{enumerate}
+\item \textbf{Mechanical Design:} The CanSat is made of carbon fiber/ alluminum alloy because of their mechanical properties such as low weight, high durability and high tolerances in thermal expansion. The structure was designed to maintain a certain position while mid-air and to withstand the stress of launch and landing. It comes with a removable top and bottom to facilitate access inside. The components are attached to the structure with screws, nuts and mounts to assure stability during the mission.
+\vspace{0.25cm}
+\item \textbf{Components:} Components used for building the CanSat include: a main board, sensors, a video camera, a battery and a GPS module. The main board contains the microcontroller which collects the data from the sensors and sends it to the ground station via it’s communication module. The sensors include: a temperature sensor, a CH4 sensor, a N2 sensor, a CO2 sensor and an altimeter which measures both pressure and altitude. The GPS module registers the current position of the CanSat. The video camera takes frames of the surface below to be processed afterwards at the ground station. The battery provides power to the CanSat during flight. The list of components stands as it follows:
+
+\begin{itemize}
+\item \textbf{Microcontroller:} Raspberry PI Zero
+\item \textbf{Temperature sensor:} sensor DS18B20
+\item \textbf{CH4 sensor:} sensor MQ-4
+\item \textbf{N2 sensor:} sensor MiCS-5524
+\item \textbf{CO2 sensor:} sensor MQ-9
+\item \textbf{Altimeter:} sensor BMP-388
+\item \textbf{GPS Module:} GPS GY-NEO6MV2 module
+\item \textbf{Communication module:} already integrated in main board
+\item \textbf{Gyroscope:} sensor MPU6050
+\item \textbf{Video Camera:} OV5647 video camera
+\item \textbf{Rechargable battery:} portable power bank
+\end{itemize}
+
+\item \textbf{Placement:} The main board is attached to the top of the CanSat structure with the sensors located adjacent to it. The battery is attached to a side of the CanSat while the camera is attached to the opposite side of it. The structure was designed to maintain balance during flight, to minimize the weight and to provide space for the components and for further human intervention.
+\vspace{0.25cm}
+\item \textbf{Drawings:} This is a mechanical drawing of the CanSat structure in which we have emphasized on the placement of the major components.
+
+\begin{figure}[h]
+\includegraphics[width=8cm]{Component_placement}
+\centering
+\end{figure}
+
+\item \textbf{Explanation:} The main board contains the microcontroller which collects the data from the sensors and sends it to the ground station via it’s communication module. The temperature sensor measures the temperature of the environment, the CH4 sensor, the N2 sensor and the CO2 sensor measures the atmospheric gasses in the air and the altimeter measures both pressure and altitude at the CanSat’s point. The GPS module registers the current position of the CanSat. The video camera takes frames of the surface below to be processed afterwards at the ground station. The battery provides power to the CanSat during flight.
+
+\end{enumerate}
 
 \subsection{Electrical design}
 % Here comes the text regarding the electrical design.
+\begin{enumerate}
+\item \textbf{Electrical Interface:}
+\item \textbf{RF Link:}
+\item \textbf{Power Budget:}
+\item \textbf{Power Consumption and Duration:}
+\item \textbf{Battery:} 
+
+\begin{figure}[h]
+\includegraphics[width=15cm]{Schema_electrica}
+\centering
+\end{figure}
+\end{enumerate}
 
 \subsection{Software design}
 % Here comes the text regarding the software design.
 
 \subsection{Recovery system}
 % Here comes the text regarding the recovery system.
+\begin{enumerate}
+\item \textbf{Description:} The Recovery System was designed to assure a safe landing and a controlled descent of the CanSat. It consists of a parachute that is attached to the CanSat structure using a harness that is made of nylon fibres and that wad designed to resist the velocity and the force applied during descent. The parachute is deployed at a certain altitude.
+\vspace{0.25cm}
+\item \textbf{Method of attachment:} The parachute is attached to the CanSat structure using a harness thar is made of nylon fibres. The harness is connected to the structure itself with screws and PVC collars providing a stable attachment for the recovery system
+\vspace{0.25cm}
+\item \textbf{Expected flight time:} The CanSat estimated time flight is … in which it reaches it's maximum altitude and reaches the ground by using the recovery system
+
+\end{enumerate}
 
 \subsection{Ground support equipment}
 % Here comes the text regarding the ground support equipment.
@@ -127,9 +178,43 @@ Additional sections can be added by the team if appropriate. However, the presen
 
 \subsubsection{Budget}
 % Here comes the text regarding the budget.
+\begin{center}
+	\begin{tabular}{|c|c|}
+		\hline
+		  Component & Cost(RON) \\
+		\hline
+		  Microcontroller & 100\\
+		  Temperature Sensor & 12\\
+		  CH4 Sensor & 11\\
+		  N2 Sensor & 80\\
+		  CO2 Sensor & 15\\
+		  Altimeter & 70\\
+		  GPS Module & 50\\
+		  Gyroscope & 17\\
+		  Video Camera & 80\\
+		  Rechargable Battery & 100\\
+		  Structure & 200\\
+		  Additional materials & 250\\
+		  Personnel & 200\\
+		  Launch site fees & 200\\
+		\hline
+		  Total Budget & 1385\\
+		\hline
+           \end{tabular}
+\end{center}
 
 \subsubsection{External support}
 % Here comes the text regarding the external support.
+Our CanSat project, ShuttleSat, receives support just from the following departments:
+\begin{itemize}
+\item \textbf{University Politehnica Bucharest:} 
+\begin{itemize}
+\item[-] Professors from the Electronics and Telecomunications department are providing useful informations for the electric diagrams and components configurations
+\item[-] Professors from the Computer Science department are offering advices in the choice of components and development of software
+\end{itemize}
+\end{itemize}
+
+At the moment, the team lacks financial support forthe purchase of components and also lacks support in the area of aerodynamics testing
 
 \subsection{Test plan}
 % Here comes the text regarding the test plan.
