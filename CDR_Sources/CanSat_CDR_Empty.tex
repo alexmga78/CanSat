@@ -129,7 +129,18 @@ Overall goal is to help businesses pick a strategic placing for their entities, 
 \end{enumerate}
 
 \subsection{Software design}
-% Here comes the text regarding the software design.
+\begin{enumerate}
+\item \textbf{Introduction:} {The CanSat's robust software architecture is designed to seamlessly manage three key systems: the flying system, data acquisition, and data transmission. Powered by the Raspberry Pi Zero/Pico, our custom software ensures optimal energy efficiency and high-speed processing for precise control of the CanSat's mission.}
+\item \textbf{Software flow overview:} {The software operates in predefined states, allowing the CanSat to adapt to various mission phases. In the event of any mid-flight issues, the system intelligently resumes from the last known state. For a detailed representation, refer to the attached Software Flow Diagram (SFD).}
+\item \textbf{State-based control:} {Initiating from the boot phase, where the system verifies state integrity, the software progresses to standby, where all modules are idling. The subsequent ground test phase activates all modules at full power, testing their connections and integrity. The second phase commences with the launch, maintaining only the position modules, followed by ascent, where the parachute deployment system is engaged. The final stage, 'top/deploy,' marks the deployment of the chute. In the third phase, the position modules transition to idle, initiating the descending cycle. The last state, touchdown, signals the return of all modules to idle.}
+\item \textbf{Data Handling:} {We anticipate a data volume ranging from 2Mb to 7Mb for images and over 10kb for sensor data per flight. The Raspberry Pi's non-volatile memory efficiently stores this data, ensuring data integrity throughout the mission. Real-time transmission to the ground station is facilitated through the communication system.}
+\item \textbf{Programming Languages:} {C/C++ is employed for image data management, optimizing efficiency for handling larger datasets. Python, chosen for its versatility, manages sensor data efficiently, considering the smaller dataset size and lower processing requirements.}
+\item \textbf{Conclusion:} {In conclusion, our software flow design not only ensures the reliability and adaptability of the CanSat but also facilitates efficient data management and transmission. This sophisticated architecture, coupled with the power of Raspberry Pi, positions our CanSat project for success in the upcoming challenge.}
+\end{enumerate}
+\begin{figure}[h]
+\includegraphics[width=19cm]{Software Diagram.png}
+\centering
+\end{figure}
 
 \subsection{Recovery system}
 % Here comes the text regarding the recovery system.
