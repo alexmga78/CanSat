@@ -2,16 +2,16 @@
 \usepackage{ROSPINCanSat, lipsum, xcolor}
 \cansatstyle
 
-\title{Guidelines for the Critical Design Report
-}
-\author{Team: ROSPIN}
-\date{January 22, 2024}
+% \title{Guidelines for the Critical Design Report
+% }
+% \author{Team: ROSPIN}
+% \date{January 22, 2024}
 
 \begin{document}
 
-\cansattitle
+% \cansattitle
 
-\newpage
+% \newpage
 
 \tableofcontents
 \pagestyle{plain}
@@ -75,7 +75,10 @@ Overall goal is to help businesses pick a strategic placing for their entities, 
 % or the Payload escription text here for the Rocketry challenge
 
 \subsection{Mission overview}
-% Here comes the text regarding the mission overview.
+\begin{enumerate}
+\item \textbf{Steps:} We focus to \textbf{design} the satellite, its systems and perform a series of \textbf{simulations} and \textbf{theoretical tests}. Afterwards the mission will be carried out by \textbf{building} the CanSat, followed by several \textbf{tests, demonstrations} and \textbf{improvements}. The CanSat is set to be \textbf{launched} and \textbf{deployed} about 1km altitude, and to descend at about 10 meters per second, giving our \textbf{data systems} 80 seconds of straight data collecting time. Ground controller system, \textbf{processes} received data, throughout the entire time of data acquiring, and will provide \textbf{real-time statistics} from collected data.
+\vspace{0.25cm}
+\end{enumerate}
 
 \subsection{Mechanical / structural design}
 % Here comes the text regarding the mechanical and structural design.
@@ -177,7 +180,7 @@ Overall goal is to help businesses pick a strategic placing for their entities, 
 \item \textbf{Introduction:} {Ground Support Equipment (GSE) consists of three main components: a laptop, an antenna, and a radio receiver. This system is vital for receiving and processing data transmitted by the CanSat during its mission.}
 \item \textbf{Ground software design:} {The ground software design is segmented into two crucial parts. The backend is responsible for processing and storing data using advanced tools, including algorithms for image clarification and AI for comprehensive data analysis. Simple algorithms are also employed to process sensor data efficiently. On the other hand, the frontend is dedicated to presenting the processed data in a clear and human-understandable format, such as intuitive indicators like 'high level of traffic' or 'low level of traffic'.}
 \item \textbf{Data handling and storage:} {All received and transmitted data are stored in binary format throughout the entire flight process. While binary data is utilized during the flight, a localized decoding process may be applied at the ground station for user experience and interface purposes.}
-\item \textbf{Transmitter and data transmission:} {The transmitter, integral to the Raspberry Pi, facilitates data transmission and reception. Operating on the existing 4G network within the 600MHz to 2.5GHz band width, our system minimizes interference with common signals in densely populated cities, such as Bucharest.}
+\item \textbf{Transmitter and data transmission:} {The transmitter, integral to the Raspberry Pi, facilitates data transmission and reception. Data is transfered trough a GSM module, and by operating a SIM card on the existing 4G network, our system minimizes interference with common signals in densely populated cities, such as Bucharest.}
 \item \textbf{User friendly interface:} {The computer in our GSE will offer a user friendly interface, enabling operators to control various actions. This includes managing the 'descending cycle,' determining the focus of data gathering, toggling modules on/off, and additional functionalities designed to enhance mission control capabilities and reduce limitations.}
 \item \textbf{Conclusion:} {In conclusion, our Ground Support Equipment is meticulously designed to receive, process, and interpret data from the CanSat during its mission, as well as send commands to the satellite and monitor every module and process by telemetry. The integration of advanced algorithms, binary data handling, and a user-friendly interface ensures the efficiency and effectiveness of our GSE in mission control.}
 \end{enumerate}
