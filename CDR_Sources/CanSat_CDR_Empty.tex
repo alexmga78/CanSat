@@ -107,7 +107,7 @@ Overall goal is to help businesses pick a strategic placing for their entities, 
 \centering
 \end{figure}
 
-\item \textbf{Explanation:} The main board contains the microcontroller which collects the data from the sensors and sends it to the ground station via it’s communication module. The temperature sensor measures the temperature of the environment, the CH4 sensor, the N2 sensor and the CO2 sensor measures the atmospheric gasses in the air and the altimeter measures both pressure and altitude at the CanSat’s point. The GPS module registers the current position of the CanSat. The video camera takes frames of the surface below to be processed afterwards at the ground station. The battery provides power to the CanSat during flight.
+\item \textbf{Explanation:} The main board, Raspberry PI Zero acts as the data collector for the sensors and the camera, aswell as the data transmitter for the ground station. The sensor DS18B20 offers an accurate and fast measurement of the atmospheric temperature. MQ-4, MiCS-5524 and MQ-9 accomplish the main mission of the Payload, measurement of the quantity of atmospheric gasses. They all have a small power consumption and a very small error margin. Even though the BMP-388 is a Barometric Pressure sensor it can be used as a altimeter with a precision of $\pm$ 0.5 m. The GPS module GY-NEO6MV2 comes with an antenna which helps it receive the current position from the satellites and the MPU6050 sensor can be used as a 3 axis gyroscope. The OV5647 video camera is a standard Raspberry PI Camera with a small power consumption and a resoultion of 1080p which will be used to accomplish the secondary mission of the Payload, traffic measurement and mapping.
 
 \end{enumerate}
 
@@ -230,7 +230,7 @@ Our CanSat project, ShuttleSat, receives support just from the following departm
 \end{itemize}
 \end{itemize}
 
-At the moment, the team lacks financial support forthe purchase of components and also lacks support in the area of aerodynamics testing
+At the moment, the team lacks financial support for the purchase of components and also lacks support in the area of aerodynamics testing
 
 \subsection{Test plan}
 % Here comes the text regarding the test plan.
@@ -247,6 +247,18 @@ At the moment, the team lacks financial support forthe purchase of components an
 
 \subsection{Data Analysis Plan}
 % Here comes the text regarding the data analisys plan..
+The data analysis plan for the CanSat is designed to assure a clear understanding of the data it collects during the primary and secondary missions:
+\begin{itemize}
+\item \textbf{Primary Mission:} Measurement of the quantities of atmospheric gasses: CH4, CO2 and N2 by using specific sensors mentioned above at different altitudes is the CanSat's primary mission. The data gathered by them will be directly sent to the microcontroller which further sends them to the ground station, then it will be analised and visually represented in a database.
+\item \textbf{Secondary Mission:} As it was stated above, our CanSat's secondary mission is traffic measurement and mapping and finding a corellation between the traffic in a certain area and the density of the atmospheric gasses measured. The data gathered will consist of photos taken by the CanSat at different altitudes used for counting the entities at the ground such as cars and people.
+\end {itemize}
+In order for the data to be processed so it will offer us a great value, the following software will be used:
+\begin{itemize}
+\item \textbf{Data acquisition software:} The Microcontroller uses a Unix interface which allows installing of different packages specific for each sensor to allow it to get the data from them. Also, the Microcontroller comes with a specific module for the video camera which allows it to get the image file obtained by the camera.
+\item \textbf{Data  processing software:} The computer at the ground station will be using an algorithm for compressing the image and searching for key points of interest, especially for entities present in the image. Also, the data collected by the CanSat will be sent to a server in order to be downloaded in the ground station computer.
+\item \textbf{Data visualisation software:} The data obtained will be represented visually in a program such as Matlab to quickly understand it and identify patterns and trends, especially in the case of traffic analysis and mapping which are key components of our secondary mission.
+\item \textbf{Statistical analysis software:} The data obtained will be analised in a program such as Matlab to visualise if there is a connection between the density of the atmospheric gasses at different levels of altitude and the traffic in a certain area. It will consist in different types of charts, like cluster charts or regression charts that will help us determine if there truly is a corellation.
+\end{itemize}
 
 \subsection{Outreach Program}
 \begin{enumerate}
