@@ -30,9 +30,10 @@
 \hspace{0.5cm} First phase is complete and ShuttleSat successfully designed its satellite, capable to fulfill mission objectives. With the systems well designed and lots of energy, the team has started their work on satellite building.
 
 \subsection{Tasks list}
-\begin{figure}[hbt!]
+\begin{figure}[h!]
 \includegraphics[width=15cm]{Tasks list.png}
 \centering
+\caption{Task list}
 \end{figure}
 
 \subsection{Detailed project status}
@@ -119,8 +120,9 @@
 \item \textbf{Drawings:} This is a mechanical drawing of the CanSat structure in which we have emphasized on the placement of the major components.
 
 \begin{figure}[hbt!]
-\includegraphics[width=8cm]{Component_placement}
+\includegraphics[width=5cm]{Component_placement}
 \centering
+\caption{Placement of components}
 \end{figure}
 
 \item \textbf{Explanation:} The main board, Raspberry PI Zero acts as the data collector for the sensors and the camera, aswell as the data transmitter for the ground station. The sensor DS18B20 offers an accurate and fast measurement of the atmospheric temperature. MQ-4, MiCS-5524 and MQ-9 accomplish the main mission of the Payload, measurement of the quantity of atmospheric gasses. They all have a small power consumption and a very small error margin. Even though the BMP-388 is a Barometric Pressure sensor it can be used as a altimeter with a precision of $\pm$ 0.5 m. The GPS module GY-NEO6MV2 comes with an antenna which helps it receive the current position from the satellites and the MPU6050 sensor can be used as a 3 axis gyroscope. The OV5647 video camera is a standard Raspberry PI Camera with a small power consumption and a resoultion of 1080p which will be used to accomplish the secondary mission of the Payload, traffic measurement and mapping.
@@ -130,16 +132,31 @@
 \subsection{Electrical design}
 % Here comes the text regarding the electrical design.
 \begin{enumerate}
-\item \textbf{Electrical Interface:}
-\item \textbf{RF Link:}
+\item \textbf{Electrical Interface:} The Cansat’s electrical interface is  facilitating  communication, control through the mission.Electrical connections are essential  to maintain signal  integrity and prevent system failures. Electrical diagrams are used  to show a visiual representation of the electrical layout.
+
+\begin{figure}[h!]
+\includegraphics[width=15cm]{Schema_electrica1}
+\centering
+\caption{Power sourcing diagram}
+\end{figure}
+
+\begin{figure}[h!]
+\includegraphics[width=15cm]{Schema_electrica2}
+\centering
+\caption{Sensors connectivity diagram}
+\end{figure}
+
+\begin{figure}[h!]
+\includegraphics[width=15cm]{Schema_electrica3}
+\centering
+\caption{Modules connectivity diagram}
+\end{figure}
+
+\item \textbf{RF Link:} Communication is established via radio frequency (RF) links, comprising a transmitter and receiver. The downlink transmits telemetry data from the CanSat to ground stations, while the uplink allows for remote commands and control. The data rate and protocol of the RF link are carefully selected to ensure reliable communication within the constraints of the mission.
 \item \textbf{Power Budget:}
 \item \textbf{Power Consumption and Duration:}
 \item \textbf{Battery:} 
 
-\begin{figure}[hbt!]
-\includegraphics[width=15cm]{Schema_electrica}
-\centering
-\end{figure}
 \end{enumerate}
 
 \subsection{Software design}
@@ -150,16 +167,13 @@
 \item \textbf{Data Handling:} {We anticipate a data volume ranging from 2Mb to 7Mb for images and over 10kb for sensor data per flight. The Raspberry Pi's non-volatile memory efficiently stores this data, ensuring data integrity throughout the mission. Real-time transmission to the ground station is facilitated through the communication system.}
 \item \textbf{Programming Languages:} {C/C++ is employed for image data management, optimizing efficiency for handling larger datasets. Python, chosen for its versatility, manages sensor data efficiently, considering the smaller dataset size and lower processing requirements.}
 \item \textbf{Conclusion:} {In conclusion, our software flow design not only ensures the reliability and adaptability of the CanSat but also facilitates efficient data management and transmission. This sophisticated architecture, coupled with the power of Raspberry Pi, positions our CanSat project for success in the upcoming challenge.}
-\begin{figure}[h]
+\begin{figure}[h!]
 \includegraphics[width=19cm]{Software Diagram.png}
 \centering
+\caption{Software Flow Diagram}
 \end{figure}
 \end{enumerate}
-\begin{center}
-\vspace{-4.5cm}
-\centering
-\textbf{S.F.D.}
-\end{center}
+
 \subsection{Recovery system}
 % Here comes the text regarding the recovery system.
 \begin{enumerate}
@@ -169,21 +183,24 @@
 \vspace{0.25cm}
 \item \textbf{Picture:} Here is an indicative picture of how the parachute will look during the descent
 
-\begin{figure}[hbt!]
+\begin{figure}[h!]
 \includegraphics[width=5cm]{Parachute_example}
 \centering
+\caption{Example of a CanSat's flat parachute}
 \end{figure}
 
 \item \textbf{Expected flight time:} The CanSat's estimated flight time is around 10 minutes in which it reaches its maximum altitude and returns back to the ground station. After a short simulation, taking in consideration the characteristics of the parachute and of the Payload, the time for the descent is 100.7 seconds in perfect weather conditions and it reaches its maximum velocity of 10 m/s in 10 seconds. Here are the altitude and velocity variation graphs:
 
-\begin{figure}[hbt!]
-\includegraphics[width=15cm]{Height_variation}
+\begin{figure}[h!]
+\includegraphics[width=12cm]{Height_variation}
 \centering
+\caption{Height variation graph}
 \end{figure}
 
-\begin{figure}[hbt!]
-\includegraphics[width=15cm]{Velocity_variation}
+\begin{figure}[h!]
+\includegraphics[width=12cm]{Velocity_variation}
 \centering
+\caption{Velocity variation graph}
 \end{figure}
 
 \end{enumerate}
@@ -258,9 +275,71 @@ At the moment, the team lacks financial support for the purchase of components a
 
 \subsection{Time management}
 % Here comes the text regarding the time management.
+\hspace{0.5cm} We regard time as being very valuable to our CanSat mission, so a tight schedule must be followed in order for it to not be wasted. The following is a detailed timeline of the steps that need to be completed:
+\begin{enumerate}
+\item \textbf{Design Phase:} Jan $1^{st}$ – Feb $25^{th}$
 
+\begin{itemize}
+\item Establish the mission objectives
+\item Distribute the tasks we have to do
+\end{itemize}
 
+\item \textbf{Prototyping Phase:} Feb $26^{th}$ – Apr $28^{th}$
 
+\begin{itemize}
+\item Small prototype will be built
+\item Tests regarding the accomplishment of the chosen mission will be done
+\end{itemize}
+
+\item \textbf{Construction Phase:} Apr $28^{th}$ – May $17^{th}$
+
+\begin{itemize}
+\item The prototype will be implemented in his final version
+\item We will be taking care of the materials for assembling the satellite
+\end{itemize}
+
+\item \textbf{Launch Phase:} May $17^{th}$ - May $19^{th}$
+
+\begin{itemize}
+\item The launch of the CanSat project
+\item Collecting the data necessary to accomplish the mission
+\end{itemize}
+
+\end{enumerate}
+
+\begin{figure}[h!]
+\includegraphics[width=15cm]{Timeline}
+\centering
+\caption{Timeline}
+\end{figure}
+
+\hspace{0.5cm} The team has identified potential risks that could hinder the progress of the project and also ways to mitigate them so that the project could still develop smoothly:
+\begin{enumerate}
+\item \textbf{Unfavorable weather conditions} during tests
+
+\begin{itemize}
+\item Mitigation: Have multiple test days scheduled
+\end{itemize}
+
+\item \textbf{Chosen component} not meeting all the \textbf{necessary conditions}
+
+\begin{itemize}
+\item Mitigation: Have a diverse array of components that fulfill the same task to choose from
+\end{itemize}
+
+\item \textbf{Possible delays} of components and/or materials orders
+
+\begin{itemize}
+\item Mitigation: Place orders for materials and components well in advance
+\end{itemize}
+
+\item \textbf{Components malfunctioning} during tests
+
+\begin{itemize}
+\item Mitigation: Buy two of the same component as backup
+\end{itemize}
+
+\end{enumerate}
 
 % 5th section
 \section{Data analysis and outreach}
@@ -304,7 +383,7 @@ At the moment, the team lacks financial support for the purchase of components a
 \hspace{0.5cm} To sumarise everything mentioned above, the "ShuttleSat" CanSat is designed to fulfill two missions: the quantity measurement of the atmospheric gasses and traffic management and mapping, and to find a connection between them. Even though this may not be accomplished with such a small scale project, we have high hopes regarding the value of the data that will be collected. We look forward to achieving a recognition of people in the pictures taken at the altitudes of under 300m, aswell as recognition of cars at under 700m and a very precise measurement of the density of gasses such as CH4, CO2 and N2.
 \newline
 
-At the moment, we are aware of the fact that the structure of the CanSat and the details of the missions are subject to change since there are certain conditions or risks we have not taken into consideration. Though, as it stands right now, we envision that the current design will be able to sustain bad weather such as a windy or a cloudy weather and that the components and software that we thought of are going to be able to collect and process the data we want. If not, we will make the necessary adjustments such as changing the components or the structure and materials of the CanSat itself or we will look towards other pieces of software that will be more efficient in order to achieve our objectives.
+At the moment, we are aware of the fact that the structure of the CanSat and the details of the missions are subject to change since there may be certain conditions or risks we have not taken into consideration. Though, as it stands right now, we envision that the current design will be able to sustain bad weather such as a windy or a cloudy weather and that the components and software that we thought of are going to be able to collect and process the data we want. If not, we will make the necessary adjustments such as changing the components or the structure and materials of the CanSat itself or we will look towards other pieces of software that will be more efficient in order to achieve our objectives.
 
 
 
