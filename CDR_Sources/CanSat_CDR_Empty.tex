@@ -1,5 +1,6 @@
 \documentclass[11pt]{article}
 \usepackage{ROSPINCanSat, lipsum, xcolor}
+\usepackage{float}
 \cansatstyle
 
 % \title{Guidelines for the Critical Design Report
@@ -30,7 +31,7 @@
 \hspace{0.5cm} First phase is complete and ShuttleSat successfully designed its satellite, capable to fulfill mission objectives. With the systems well designed and lots of energy, the team has started their work on satellite building.
 
 \subsection{Tasks list}
-\begin{figure}[h!]
+\begin{figure}[H]
 \includegraphics[width=15cm]{Tasks list.png}
 \centering
 \caption{Task list}
@@ -42,11 +43,11 @@
     \item\textbf{Structural design:} {Using a Raspberry PI as the central board, for increased processing strength, caused a few problems about placement. Although our team managed to overcome this challenge by fitting all systems and components inside a can and proving ourselves that it is possible.}
     \item\textbf{Software design:} {Having C and Python as main programming languages, our software will be versatile and we have the power of adapting, as we will be able to have both, very low level programming such as C or Assembly integrated in C, but also high level programming trough Python if we need a fast and simple implementation. System designs are ready to be implemented, those including the descending cycle, state running system, and many more.}
     \item\textbf{Ground controller system:} {Our ground station is designed to monitor, control and communicate with the satellite central board, allowing us to make changes mid-flight and take emergency actions. These changes are possible due to the GCS having as equipment a laptop and the communication module.}
-    \item\textbf{Power management system:} {Although solar panels came in the end that are not a valid option, our team managed to obtain a runtime of over 4 hours while acquiring data. The system is based on somewhat big batteries and a good efficiency from the electrical and software design.}
-    \item\textbf{Communication system:} {The CS design allows the satellite to have a stable connection with GCS, using a GSM module with 4G network connection. This way we have a reliable connection because it is based on actual network and infrastructure.}
+    \item\textbf{Power management system:} {Although solar panels came in the end that are not a valid option, our team managed to obtain a runtime of over 4 hours while acquiring data. The system is based on a lithium polymer baterry and has a good efficiency due to the electrical and software design.}
+    \item\textbf{Communication system:} {The Communication system design allows the satellite to have a stable connection with Ground communication system, using a GSM module with 4G network connection. This way we have a reliable connection because it is based on actual network and infrastructure.}
     \item\textbf{Hardware implementation:} {Having a complete list of specific components(list found at 4.2.1), necessary designs and a budget for the project, we will place an order for all components soon. Meanwhile components are on their way, our team is focused on research and finding new improvements.}
     \item\textbf{Software implementation:} {The software is already in progress, as building the foundation started. This means our team is focused on putting together a workspace, with necessary tools and technologies ready to work. Right after the workspace, the actual implementation will start.}
-    \item\textbf{Outreach program:} {At the moment we are looking forward to gather some entertainment and educative content from our journey of implementing what we designed. When we are able to provide value(aka start implementation), we will start our social media engagement.}
+    \item\textbf{Outreach program:} {At the moment we are looking forward to gather some entertainment and educative content from our journey of implementing what we designed. When we are able to provide value, we will start our social media engagement.}
 \end{enumerate}
 
 
@@ -80,7 +81,7 @@
     \item\textbf{Traffic measurement and mapping, for known congested areas, either entities identified as cars or humans.} {Secondary mission objective is to achieve an infrastructure capable of monitoring human and cars traffic. The infrastructure should be based on a single satellite that covers a single area at a time. We are looking forward to collect data such as: the number of entities inside the area and the flux of entities relative to time.}
     \item\textbf{Proving that the concept can be applied at a larger scale, such as a network of orbital satellites doing traffic measurements, is the target objective to call the launch successful.} {Main target is to successful capture stable and high quality pictures of the designated area. Smaller targets are to transmit this data to ground controller, and develop an innovative algorithm and AI in order to obtain 2 main variables: number of entities and their flux, within an area.}
     \item\textbf{We are expecting to find: majority of challenges, data to simulate actual implementation, costs and impact, infrastructure improvements.} {We are looking further to understand and list the majority of challenges that are faced when designing and building an orbiting satellite for current mission objective. Obtain the necessary data to run simulations of the cost to build and maintain a satellite network that measures and maps traffic, as well as it's impact and benefits. A flawless data transfer infrastructure is expected to be built trough the overcame challenges. Nonetheless we expect to improve our current skills and develop new ones, necessary for satellites development and engineering.}
-    \item\textbf{Measure the values of CH4, CO2 and N2 and the quantity of entities inside a designated area.} {We are seeking to identify the \% of CH4, CO2 and N2 from the air with a precision of up to 98 at any altitude\% and the quantity of entities, in a targeted area with a precision of around 50\% at 300-700m for cars and 100-300m for humans. Also we are looking to test the transmission of this data, its capabilities and limitations, to the ground controller, continuously, until we fall under 100m of altitude. But the most important test will be the satellite as a whole, that every system work as expected and what improvements can be done for a successful infrastructure.}
+    \item\textbf{Measure the values of $CH_4$, $CO_2$ and $N_2$ and the quantity of entities inside a designated area.} {We are seeking to identify the \% of $CH_4$, $CO_2$ and $N_2$ from the air with a precision of up to 98 at any altitude\% and the quantity of entities, in a targeted area with a precision of around 50\% at 300-700m for cars and 100-300m for humans. Also we are looking to test the transmission of this data, its capabilities and limitations, to the ground controller, continuously, until we fall under 100m of altitude. But the most important test will be the satellite as a whole, that every system work as expected and what improvements can be done for a successful infrastructure.}
 \end{enumerate}
 
 
@@ -99,14 +100,14 @@
 \begin{enumerate}
 \item \textbf{Mechanical Design:} The CanSat is made of carbon fiber/ alluminum alloy because of their mechanical properties such as low weight, high durability and high tolerances in thermal expansion. The structure was designed to maintain a certain position while mid-air and to withstand the stress of launch and landing. It comes with a removable top and bottom to facilitate access inside. The components are attached to the structure with screws, nuts and mounts to assure stability during the mission.
 \vspace{0.25cm}
-\item \textbf{Components:} Components used for building the CanSat include: a main board, sensors, a video camera, a battery and a GPS module. The main board contains the microcontroller which collects the data from the sensors and sends it to the ground station via it’s communication module. The sensors include: a temperature sensor, a CH4 sensor, a N2 sensor, a CO2 sensor and an altimeter which measures both pressure and altitude. The GPS module registers the current position of the CanSat. The video camera takes frames of the surface below to be processed afterwards at the ground station. The battery provides power to the CanSat during flight. The list of components stands as it follows:
+\item \textbf{Components:} Components used for building the CanSat include: a main board, sensors, a video camera, a battery and a GPS module. The main board contains the microcontroller which collects the data from the sensors and sends it to the ground station via it’s communication module. The sensors include: a temperature sensor, a $CH_4$ sensor, a $N_2$ sensor, a $CO_2$ sensor and an altimeter which measures both pressure and altitude. The GPS module registers the current position of the CanSat. The video camera takes frames of the surface below to be processed afterwards at the ground station. The battery provides power to the CanSat during flight. The list of components stands as it follows:
 
 \begin{itemize}
 \item \textbf{Microcontroller:} Raspberry PI Zero
 \item \textbf{Temperature sensor:} sensor DS18B20
-\item \textbf{CH4 sensor:} sensor MQ-4
-\item \textbf{N2 sensor:} sensor MiCS-5524
-\item \textbf{CO2 sensor:} sensor MQ-9
+\item \textbf{$CH_4$ sensor:} sensor MQ-4
+\item \textbf{$N_2$ sensor:} sensor MiCS-5524
+\item \textbf{$CO_2$ sensor:} sensor MQ-9
 \item \textbf{Altimeter:} sensor BMP-388
 \item \textbf{GPS Module:} GPS GY-NEO6MV2 module
 \item \textbf{Communication module:} already integrated in main board
@@ -119,10 +120,10 @@
 \vspace{0.25cm}
 \item \textbf{Drawings:} This is a mechanical drawing of the CanSat structure in which we have emphasized on the placement of the major components.
 
-\begin{figure}[hbt!]
+\begin{figure}[H]
 \includegraphics[width=5cm]{Component_placement}
 \centering
-\caption{Placement of components}
+\caption{Concept art of the placement of components}
 \end{figure}
 
 \item \textbf{Explanation:} The main board, Raspberry PI Zero acts as the data collector for the sensors and the camera, aswell as the data transmitter for the ground station. The sensor DS18B20 offers an accurate and fast measurement of the atmospheric temperature. MQ-4, MiCS-5524 and MQ-9 accomplish the main mission of the Payload, measurement of the quantity of atmospheric gasses. They all have a small power consumption and a very small error margin. Even though the BMP-388 is a Barometric Pressure sensor it can be used as a altimeter with a precision of $\pm$ 0.5 m. The GPS module GY-NEO6MV2 comes with an antenna which helps it receive the current position from the satellites and the MPU6050 sensor can be used as a 3 axis gyroscope. The OV5647 video camera is a standard Raspberry PI Camera with a small power consumption and a resoultion of 1080p which will be used to accomplish the secondary mission of the Payload, traffic measurement and mapping.
@@ -134,28 +135,36 @@
 \begin{enumerate}
 \item \textbf{Electrical Interface:} The Cansat’s electrical interface is  facilitating  communication, control through the mission.Electrical connections are essential  to maintain signal  integrity and prevent system failures. Electrical diagrams are used  to show a visiual representation of the electrical layout.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \includegraphics[width=15cm]{Schema_electrica1}
 \centering
-\caption{Power sourcing diagram}
+\caption{Power sourcing circuitry}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \includegraphics[width=15cm]{Schema_electrica2}
 \centering
-\caption{Sensors connectivity diagram}
+\caption{Sensors connectivity circuitry}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \includegraphics[width=15cm]{Schema_electrica3}
 \centering
-\caption{Modules connectivity diagram}
+\caption{Modules connectivity circuitry}
 \end{figure}
 
-\item \textbf{RF Link:} Communication is established via radio frequency (RF) links, comprising a transmitter and receiver. The downlink transmits telemetry data from the CanSat to ground stations, while the uplink allows for remote commands and control. The data rate and protocol of the RF link are carefully selected to ensure reliable communication within the constraints of the mission.
-\item \textbf{Power Budget:}
-\item \textbf{Power Consumption and Duration:}
-\item \textbf{Battery:} 
+\item \textbf{RF Link:} Communication is established via radio frequency (RF) links. The downlink transmits telemetry data from the CanSat to ground stations, while the uplink allows for remote commands and control. The data rate and protocol of the RF link are carefully selected to ensure reliable communication within the constraints of the mission.
+\item \textbf{Power Budget:} The power budget for the CanSat is as follows:
+\begin{itemize}
+\item Main Board: 0.33 W
+\item Sensors: 2 W
+\item GPS module: 0.132 W
+\item Video Camera: 0.825 W
+\item Battery: 4.2 Ah
+\end{itemize}
+
+\item \textbf{Power Consumption and Duration:} The total power consumed is 3.2W, the battery has a capacity of 10,000mAh and 37W, enough for 4 hours.
+\item \textbf{Battery:} We use a lithium polymer battery with a capacity of 10,000mAh. The number of batteries used is one.
 
 \end{enumerate}
 
@@ -167,7 +176,7 @@
 \item \textbf{Data Handling:} {We anticipate a data volume ranging from 2Mb to 7Mb for images and over 10kb for sensor data per flight. The Raspberry Pi's non-volatile memory efficiently stores this data, ensuring data integrity throughout the mission. Real-time transmission to the ground station is facilitated through the communication system.}
 \item \textbf{Programming Languages:} {C/C++ is employed for image data management, optimizing efficiency for handling larger datasets. Python, chosen for its versatility, manages sensor data efficiently, considering the smaller dataset size and lower processing requirements.}
 \item \textbf{Conclusion:} {In conclusion, our software flow design not only ensures the reliability and adaptability of the CanSat but also facilitates efficient data management and transmission. This sophisticated architecture, coupled with the power of Raspberry Pi, positions our CanSat project for success in the upcoming challenge.}
-\begin{figure}[h!]
+\begin{figure}[H]
 \includegraphics[width=19cm]{Software Diagram.png}
 \centering
 \caption{Software Flow Diagram}
@@ -183,7 +192,7 @@
 \vspace{0.25cm}
 \item \textbf{Picture:} Here is an indicative picture of how the parachute will look during the descent
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \includegraphics[width=5cm]{Parachute_example}
 \centering
 \caption{Example of a CanSat's flat parachute}
@@ -191,13 +200,13 @@
 
 \item \textbf{Expected flight time:} The CanSat's estimated flight time is around 10 minutes in which it reaches its maximum altitude and returns back to the ground station. After a short simulation, taking in consideration the characteristics of the parachute and of the Payload, the time for the descent is 100.7 seconds in perfect weather conditions and it reaches its maximum velocity of 10 m/s in 10 seconds. Here are the altitude and velocity variation graphs:
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \includegraphics[width=12cm]{Height_variation}
 \centering
 \caption{Height variation graph}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \includegraphics[width=12cm]{Velocity_variation}
 \centering
 \caption{Velocity variation graph}
@@ -221,6 +230,48 @@
 
 \subsection{Time schedule of the project preparation}
 % Here comes the text regarding the time schedule.
+\hspace{0.5cm} The team classified the necessary tasks in multiple phases as follows:
+\begin{enumerate}
+\item \textbf{Planning Phase} 
+
+\begin{itemize}
+\item We are doing a research on CanSat design, components, launch regulations and mission requirements.
+\end{itemize}
+
+\item \textbf{Design Phase}
+
+\begin{itemize}
+\item Developing detailed designs for all aspects of the CanSat.
+\item Selecting components like sensors, microcontrollers, communication modules.
+\end{itemize}
+
+\item \textbf{Development Phase}
+
+\begin{itemize}
+\item Assembling the satelite according to the final design.
+\item Testing the software for data collection.
+\end{itemize}
+
+\item \textbf{Launch Phase}
+
+\begin{itemize}
+\item Collecting the necessary data.
+\end{itemize}
+
+\item \textbf{Data analysis}
+
+\begin{itemize}
+\item Analyzing the data collected during the mission to draw the conclusions.
+\end{itemize}
+
+\end{enumerate}
+
+\hspace{0.5cm} The team has also found several risks that the project may encounter during its development and came up with some precautions:
+
+\begin{enumerate}
+\item Always have a backup plan in case of unfavourable weather for tests, faulty components or insufficient funds and reach to possible sponsors.
+\item Never be late in accomplishing certain tasks such as ordering of components or project plan modification.
+\end{enumerate}
 
 \subsection{Resource estimation}
 % Here comes the text regarding the resource estimation.
@@ -234,9 +285,9 @@
 		\hline
 		  Microcontroller & 100\\
 		  Temperature Sensor & 12\\
-		  CH4 Sensor & 11\\
-		  N2 Sensor & 80\\
-		  CO2 Sensor & 15\\
+		  $CH_4$ Sensor & 11\\
+		  $N_2$ Sensor & 80\\
+		  $CO_2$ Sensor & 15\\
 		  Altimeter & 70\\
 		  GPS Module & 50\\
 		  Gyroscope & 17\\
@@ -244,7 +295,7 @@
 		  Rechargable Battery & 100\\
 		  Structure & 200\\
 		  Additional materials & 250\\
-		  Personnel & 200\\
+		  Backup Components & 200\\
 		  Launch site fees & 200\\
 		\hline
 		  Total Budget & 1385\\
@@ -258,12 +309,12 @@
 \begin{itemize}
 \item \textbf{University Politehnica Bucharest:} 
 \begin{itemize}
-\item[-] Professors from the Electronics and Telecomunications department are providing useful informations for the electric diagrams and components configurations
-\item[-] Professors from the Computer Science department are offering advices in the choice of components and development of software
+\item[-] Professors from the Electronics and Telecomunications department are providing useful informations for the electric diagrams and components configurations.
+\item[-] Professors from the Computer Science department are offering advices in the choice of components and development of software.
 \end{itemize}
 \end{itemize}
 
-At the moment, the team lacks financial support for the purchase of components and also lacks support in the area of aerodynamics testing
+At the moment, the team lacks financial support for the purchase of components and also lacks support in the area of aerodynamics testing.
 
 \subsection{Test plan}
 \begin{enumerate}
@@ -280,34 +331,34 @@ At the moment, the team lacks financial support for the purchase of components a
 \item \textbf{Design Phase:} Jan $1^{st}$ – Feb $25^{th}$
 
 \begin{itemize}
-\item Establish the mission objectives
-\item Distribute the tasks we have to do
+\item Establish the mission objectives.
+\item Distribute the tasks we have to do.
 \end{itemize}
 
 \item \textbf{Prototyping Phase:} Feb $26^{th}$ – Apr $28^{th}$
 
 \begin{itemize}
-\item Small prototype will be built
-\item Tests regarding the accomplishment of the chosen mission will be done
+\item Small prototype will be built.
+\item Tests regarding the accomplishment of the chosen mission will be done.
 \end{itemize}
 
 \item \textbf{Construction Phase:} Apr $28^{th}$ – May $17^{th}$
 
 \begin{itemize}
-\item The prototype will be implemented in his final version
-\item We will be taking care of the materials for assembling the satellite
+\item The prototype will be implemented in his final version.
+\item We will be taking care of the materials for assembling the satellite.
 \end{itemize}
 
 \item \textbf{Launch Phase:} May $17^{th}$ - May $19^{th}$
 
 \begin{itemize}
-\item The launch of the CanSat project
-\item Collecting the data necessary to accomplish the mission
+\item The launch of the CanSat project.
+\item Collecting the data necessary to accomplish the mission.
 \end{itemize}
 
 \end{enumerate}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \includegraphics[width=15cm]{Timeline}
 \centering
 \caption{Timeline}
@@ -315,28 +366,28 @@ At the moment, the team lacks financial support for the purchase of components a
 
 \hspace{0.5cm} The team has identified potential risks that could hinder the progress of the project and also ways to mitigate them so that the project could still develop smoothly:
 \begin{enumerate}
-\item \textbf{Unfavorable weather conditions} during tests
+\item \textbf{Unfavorable weather conditions} during tests.
 
 \begin{itemize}
-\item Mitigation: Have multiple test days scheduled
+\item Mitigation: Have multiple test days scheduled.
 \end{itemize}
 
-\item \textbf{Chosen component} not meeting all the \textbf{necessary conditions}
+\item \textbf{Chosen component} not meeting all the \textbf{necessary conditions}.
 
 \begin{itemize}
-\item Mitigation: Have a diverse array of components that fulfill the same task to choose from
+\item Mitigation: Have a diverse array of components that fulfill the same task to choose from.
 \end{itemize}
 
-\item \textbf{Possible delays} of components and/or materials orders
+\item \textbf{Possible delays} of components and/or materials orders.
 
 \begin{itemize}
-\item Mitigation: Place orders for materials and components well in advance
+\item Mitigation: Place orders for materials and components well in advance.
 \end{itemize}
 
-\item \textbf{Components malfunctioning} during tests
+\item \textbf{Components malfunctioning} during tests.
 
 \begin{itemize}
-\item Mitigation: Buy two of the same component as backup
+\item Mitigation: Buy two of the same component as backup.
 \end{itemize}
 
 \end{enumerate}
@@ -349,7 +400,7 @@ At the moment, the team lacks financial support for the purchase of components a
 % Here comes the text regarding the data analisys plan..
 \hspace{0.5cm} The data analysis plan for the CanSat is designed to assure a clear understanding of the data it collects during the primary and secondary missions:
 \begin{enumerate}
-\item \textbf{Primary Mission:} Measurement of the quantities of atmospheric gasses: CH4, CO2 and N2 by using specific sensors mentioned above at different altitudes is the CanSat's primary mission. The data gathered by them will be directly sent to the microcontroller which further sends them to the ground station, then it will be analised and visually represented in a database.
+\item \textbf{Primary Mission:} Measurement of the quantities of atmospheric gasses: $CH_4$, $CO_2$ and $N_2$ by using specific sensors mentioned above at different altitudes is the CanSat's primary mission. The data gathered by them will be directly sent to the microcontroller which further sends them to the ground station, then it will be analised and visually represented in a database.
 \item \textbf{Secondary Mission:} As it was stated above, our CanSat's secondary mission is traffic measurement and mapping and finding a corellation between the traffic in a certain area and the density of the atmospheric gasses measured. The data gathered will consist of photos taken by the CanSat at different altitudes used for counting the entities at the ground such as cars and people.
 \end {enumerate}
 \hspace{0.5cm} In order for the data to be processed so it will offer us a great value, the following software will be used:
@@ -380,7 +431,7 @@ At the moment, the team lacks financial support for the purchase of components a
 
 \subsection{Summary of the CDR}
 % Here comes the summary for the CDR
-\hspace{0.5cm} To sumarise everything mentioned above, the "ShuttleSat" CanSat is designed to fulfill two missions: the quantity measurement of the atmospheric gasses and traffic management and mapping, and to find a connection between them. Even though this may not be accomplished with such a small scale project, we have high hopes regarding the value of the data that will be collected. We look forward to achieving a recognition of people in the pictures taken at the altitudes of under 300m, aswell as recognition of cars at under 700m and a very precise measurement of the density of gasses such as CH4, CO2 and N2.
+\hspace{0.5cm} To sumarise everything mentioned above, the "ShuttleSat" CanSat is designed to fulfill two missions: the quantity measurement of the atmospheric gasses and traffic management and mapping, and to find a connection between them. Even though this may not be accomplished with such a small scale project, we have high hopes regarding the value of the data that will be collected. We look forward to achieving a recognition of people in the pictures taken at the altitudes of under 300m, aswell as recognition of cars at under 700m and a very precise measurement of the density of gasses such as $CH_4$, $CO_2$ and $N_2$.
 \newline
 
 At the moment, we are aware of the fact that the structure of the CanSat and the details of the missions are subject to change since there may be certain conditions or risks we have not taken into consideration. Though, as it stands right now, we envision that the current design will be able to sustain bad weather such as a windy or a cloudy weather and that the components and software that we thought of are going to be able to collect and process the data we want. If not, we will make the necessary adjustments such as changing the components or the structure and materials of the CanSat itself or we will look towards other pieces of software that will be more efficient in order to achieve our objectives.
