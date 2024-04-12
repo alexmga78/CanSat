@@ -14,7 +14,7 @@ class GYNEO6MV2:
 
 # Test script
 def main():
-    gps = GYNEO6MV2("/dev/ttyAMA0")  # Assuming GPS module is connected to UART port ttyAMA0
+    gps = GYNEO6MV2("/dev/ttyS0")  # Assuming GPS module is connected to UART port ttyAMA0
     try:
         while True:
             gps_data = gps.read_data()
