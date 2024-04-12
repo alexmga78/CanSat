@@ -34,6 +34,7 @@ import sys
 ser = serial.Serial ("/dev/ttyAMA0")
 print(ser)
 try:
+	print("@@@@")
 	while True:
 		data = (str)(ser.readline())
 		print("??")
