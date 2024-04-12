@@ -6,7 +6,7 @@ class MQ9:
     def __init__(self, charge_pin, measure_pin):
         self.charge_pin = charge_pin
         self.measure_pin = measure_pin
-        # GPIO.setmode(GPIO.BCM)
+        GPIO.setmode(GPIO.BCM)
         # GPIO.setup(self.charge_pin, GPIO.OUT)
         # GPIO.setup(self.measure_pin, GPIO.IN)
 
