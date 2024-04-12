@@ -19,6 +19,7 @@ class MQ9:
     def charge_time(self):
         GPIO.setup(self.measure_pin, GPIO.IN)
         GPIO.setup(self.charge_pin, GPIO.OUT)
+        print('in')
         count = 0
         GPIO.output(self.charge_pin, True)
         while not GPIO.input(self.measure_pin):
