@@ -1,51 +1,32 @@
-#!/usr/bin/env python3
+import os
+import glob
 import time
-import board
-from adafruit_onewire.bus import OneWireBus
-from adafruit_ds18x20 import DS18X20
+ 
+os.system('modprobe w1-gpio')
+os.system('modprobe w1-therm')
+ 
+base_dir = '/sys/bus/w1/devices/'
+device_folder = glob.glob(base_dir + '28*')[0]
+device_file = device_folder + '/w1_slave'
 
-ow_bus = OneWireBus(board.D4)
-ds18 = DS18X20(ow_bus, ow_bus.scan()[0])
+def read_temp_raw():
+    f = open(device_file, 'r')
+    lines = f.readlines()
+    f.close()
+    return lines
+
+def read_temp():
+    lines = read_temp_raw()
+    while lines[0].strip()[-3:] != 'YES':
+        time.sleep(0.2)
+        lines = read_temp_raw()
+    equals_pos = lines[1].find('t=')
+    if equals_pos != -1:
+        temp_string = lines[1][equals_pos+2:]
+        temp_c = float(temp_string) / 1000.0
+        return temp_c
 
 while True:
-	print("Temperature: {0:0.3f}C".format(ds18.temperature))
+	i=(read_temp())
+	print (i, 'Degree Celsius')	
 	time.sleep(1)
-
-
-
-
-# class DS18B20:
-#     def __init__(self, pin):
-#         # Initialize the OneWire bus
-#         self.onewire_bus = adafruit_onewire.OneWire(pin)
-#         # Initialize the DS18B20 sensor
-#         self.ds18b20 = adafruit_ds18x20.DS18X20(self.onewire_bus)
-
-#     def read_temperature(self):
-#         # Scan for DS18B20 sensors on the bus
-#         sensor_ids = self.ds18b20.scan()
-#         if sensor_ids:
-#             # Read temperature from the first sensor found
-#             self.ds18b20.convert_temp()
-#             time.sleep(0.75)
-#             temperature = self.ds18b20.read_temp(sensor_ids[0])
-#             return temperature
-#         else:
-#             print("No DS18B20 sensor found!")
-#             return None
-
-# # Test script
-# def main():
-#     ds18b20 = DS18B20(board.D4)  # Assuming DS18B20 sensor is connected to D4 pin
-#     try:
-#         while True:
-#             temperature = ds18b20.read_temperature()
-#             if temperature is not None:
-#                 print("Temperature: {:.2f} C".format(temperature))
-#             print("")
-#             time.sleep(1)
-#     except KeyboardInterrupt:
-#         print("Exiting...")
-
-# if __name__ == "__main__":
-#     main()
