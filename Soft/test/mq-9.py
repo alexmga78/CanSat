@@ -3,38 +3,38 @@ import time
 import RPi.GPIO as GPIO
 
 class MQ9:
-    def __init__(self, pin):
-        # Initialize GPIO pin
-        self.pin = pin
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(self.pin, GPIO.IN)
+    def __init__(self, charge_pin, measure_pin):
+        self.charge_pin = charge_pin
+        self.measure_pin = measure_pin
+        # GPIO.setmode(GPIO.BCM)
+        # GPIO.setup(self.charge_pin, GPIO.OUT)
+        # GPIO.setup(self.measure_pin, GPIO.IN)
 
-    def read_digital_value(self):
-        # Read digital sensor value
-        return GPIO.input(self.pin)
+    def discharge(self):
+        GPIO.setup(self.charge_pin, GPIO.IN)
+        GPIO.setup(self.measure_pin, GPIO.OUT)
+        GPIO.output(self.measure_pin, False)
+        time.sleep(0.005)
 
-    def read_gas_concentration(self):
-        # Read gas concentration (replace with your calibration logic)
-        # Example: map digital value to gas concentration based on calibration curve
-        digital_value = self.read_digital_value()
-        # Example calibration curve: gas_concentration = a * digital_value + b
-        a = 0.1  # Example calibration parameter
-        b = 10   # Example calibration parameter
-        gas_concentration = a * digital_value + b
-        return gas_concentration
+    def charge_time(self):
+        GPIO.setup(self.measure_pin, GPIO.IN)
+        GPIO.setup(self.charge_pin, GPIO.OUT)
+        count = 0
+        GPIO.output(self.charge_pin, True)
+        while not GPIO.input(self.measure_pin):
+            count += 1
+        return count
+
+    def analog_read(self):
+        self.discharge()
+        return self.charge_time()
 
 # Test script
 def main():
-    mq9 = MQ9(4)  # Assuming MQ-9 sensor is connected to GPIO pin 4 (GPIO17)
+    mq9 = MQ9(charge_pin=18, measure_pin=23)  # Assuming charge pin is GPIO 18 and measure pin is GPIO 23
     try:
         while True:
-            digital_value = mq9.read_digital_value()
-            gas_concentration = mq9.read_gas_concentration()
-
-            print("Digital Value: {}".format(digital_value))
-            print("Gas Concentration: {:.2f} ppm".format(gas_concentration))
-            print("")
-
+            print(mq9.analog_read())
             time.sleep(1)
     except KeyboardInterrupt:
         print("Exiting...")

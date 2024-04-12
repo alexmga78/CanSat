@@ -25,7 +25,7 @@ class MQ4:
 
 # Test script
 def main():
-    mq4 = MQ4(4)  # Assuming MQ-4 sensor is connected to GPIO pin 4 (GPIO17)
+    mq4 = MQ4(7)  # Assuming MQ-4 sensor is connected to GPIO pin 4 (GPIO17)
     try:
         while True:
             digital_value = mq4.read_digital_value()
