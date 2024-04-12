@@ -6,7 +6,7 @@ class MQ4:
     def __init__(self, pin):
         # Initialize GPIO pin
         self.pin = pin
-        GPIO.setmode(GPIO.BOARD)
+        GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.pin, GPIO.IN)
 
     def read_digital_value(self):
@@ -25,7 +25,7 @@ class MQ4:
 
 # Test script
 def main():
-    mq4 = MQ4(11)  # Assuming MQ-4 sensor is connected to GPIO pin 11 (GPIO17)
+    mq4 = MQ4(4)  # Assuming MQ-4 sensor is connected to GPIO pin 4 (GPIO17)
     try:
         while True:
             digital_value = mq4.read_digital_value()
