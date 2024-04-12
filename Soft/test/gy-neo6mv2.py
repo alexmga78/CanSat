@@ -31,7 +31,7 @@ import serial
 from time import sleep
 import sys
 
-ser = serial.Serial ("/dev/ttyS0")
+ser = serial.Serial ("/dev/ttyAMA0")
 try:
 	while True:
 		data = (str)(ser.readline())
