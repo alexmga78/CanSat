@@ -28,7 +28,7 @@
 
 
 import serial
-from time import sleep
+import time
 import sys
 
 ser = serial.Serial ("/dev/ttyS0")
