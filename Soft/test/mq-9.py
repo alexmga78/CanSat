@@ -32,7 +32,7 @@ class MQ9:
 
 # Test script
 def main():
-    mq9 = MQ9(charge_pin=18, measure_pin=23)  # Assuming charge pin is GPIO 18 and measure pin is GPIO 23
+    mq9 = MQ9(18, 3)  # Assuming charge pin is GPIO 18 and measure pin is GPIO 23
     try:
         while True:
             print(mq9.analog_read())
