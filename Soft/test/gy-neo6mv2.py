@@ -36,6 +36,7 @@ print(ser)
 try:
 	print("@@@@")
 	while True:
+		print("RIP")
 		data = (str)(ser.readline())
 		print("??")
 		print(data, "\n")
