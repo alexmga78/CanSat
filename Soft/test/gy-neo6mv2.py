@@ -32,9 +32,11 @@ from time import sleep
 import sys
 
 ser = serial.Serial ("/dev/ttyAMA0")
+print(ser)
 try:
 	while True:
 		data = (str)(ser.readline())
+		print("??")
 		print(data, "\n")
 except KeyboardInterrupt:
 	print("Exiting...")
