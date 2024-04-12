@@ -1,18 +1,22 @@
 #!/usr/bin/env python3
 import time
 import board
-from adafruit_onewire.bus import OneWireBus
-from adafruit_ds18x20 import DS18X20
+import adafruit_onewire
+import adafruit_ds18x20
 
 # Initialize the OneWire bus
-ow_bus = OneWireBus(board.D4)
+ow_bus = adafruit_onewire.OneWire(board.D4)
+
+# Initialize the DS18B20 sensor
+ds18 = adafruit_ds18x20.DS18X20(ow_bus)
 
 # Scan for DS18B20 sensors on the bus
-ds18_devices = ow_bus.scan()
+sensor_ids = ds18.scan()
+if sensor_ids:
+    # Set the sensor address
+    ds18.address = sensor_ids[0]
 
-# Initialize the DS18B20 sensor if found
-if ds18_devices:
-    ds18 = DS18X20(ow_bus, ds18_devices[0])
+    # Main loop
     try:
         while True:
             # Read temperature from the sensor
