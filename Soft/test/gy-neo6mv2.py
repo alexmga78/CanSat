@@ -1,4 +1,4 @@
-# #!/usr/bin/env python3
+#!/usr/bin/env python3
 # import time
 # import serial
 
@@ -28,7 +28,7 @@
 
 
 import serial
-import time
+from time import sleep
 import sys
 
 ser = serial.Serial ("/dev/ttyS0")
